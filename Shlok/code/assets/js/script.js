@@ -55,19 +55,17 @@ overlay.addEventListener("click", testimonialsModalFunc);
 
 
 
-
-// custom select variables 
+// custom select variables
 const select = document.querySelector("[data-select]");
-const selectItems = document.querySelector("[data-select-item]");
+const selectItems = document.querySelectorAll("[data-select-item]");
 const selectValue = document.querySelector("[data-select-value]");
+const filterBtn = document.querySelectorAll("[data-filter-btn]");
 
-
-select.addEventListener("click", function () {elementToggleFunc(this);});
+select.addEventListener("click", function () { elementToggleFunc(this); });
 
 // add event in all select items
-
-for(let i = 0; i < selectItems.length; i++){
-  selectItems[i].addEventListener("click", function() {
+for (let i = 0; i < selectItems.length; i++) {
+  selectItems[i].addEventListener("click", function () {
 
     let selectedValue = this.innerText.toLowerCase();
     selectValue.innerText = this.innerText;
@@ -77,23 +75,21 @@ for(let i = 0; i < selectItems.length; i++){
   });
 }
 
-// filter variables 
-
+// filter variables
 const filterItems = document.querySelectorAll("[data-filter-item]");
 
-const filterFunc =  function(selectedValue) {
-  
-  for (let i = 0; i < filterItems.length; i++){
+const filterFunc = function (selectedValue) {
 
-    if(selectedValue === "all") {
+  for (let i = 0; i < filterItems.length; i++) {
+
+    if (selectedValue === "all") {
       filterItems[i].classList.add("active");
-    }
-    else if(selectedValue === filterItems[i].dataset.category) {
+    } else if (selectedValue === filterItems[i].dataset.category) {
       filterItems[i].classList.add("active");
-    }
-    else {
+    } else {
       filterItems[i].classList.remove("active");
-
     }
+
   }
+
 }
